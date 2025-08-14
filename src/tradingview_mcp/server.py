@@ -7,9 +7,9 @@ from typing_extensions import TypedDict
 from mcp.server.fastmcp import FastMCP
 
 # Import bollinger band screener modules
-from .core.services.indicators import compute_metrics
-from .core.services.coinlist import load_symbols
-from .core.utils.validators import sanitize_timeframe, sanitize_exchange, EXCHANGE_SCREENER, ALLOWED_TIMEFRAMES
+from tradingview_mcp.core.services.indicators import compute_metrics
+from tradingview_mcp.core.services.coinlist import load_symbols
+from tradingview_mcp.core.utils.validators import sanitize_timeframe, sanitize_exchange, EXCHANGE_SCREENER, ALLOWED_TIMEFRAMES
 
 try:
     from tradingview_ta import TA_Handler, get_multiple_analysis
