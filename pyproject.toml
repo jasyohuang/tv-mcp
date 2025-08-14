@@ -1,0 +1,23 @@
+[project]
+name = "tradingview-mcp"
+version = "0.1.0"
+description = "Model Context Protocol server exposing crypto screener tools (TradingView Screener)"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "mcp[cli]>=1.12.0",
+  "tradingview-screener>=0.6.4",
+  "tradingview-ta>=3.3.0",
+]
+
+[project.scripts]
+# Entry point now points to packaged module
+tradingview-mcp = "tradingview_mcp.server:main"
+
+[tool.uv]
+dev-dependencies = []
+package = true
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"

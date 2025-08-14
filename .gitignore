@@ -1,4 +1,9 @@
-# Byte-compiled / optimized / DLL files
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+.idea/
+.env# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
 *$py.class
