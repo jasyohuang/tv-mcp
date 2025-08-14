@@ -13,12 +13,19 @@
 
 UV is a fast Python package manager that handles all dependencies automatically.
 
-#### On macOS/Linux:
+#### Option 1: Using Homebrew (macOS - Recommended):
+```bash
+brew install uv
+```
+
+#### Option 2: Direct Installation:
+
+**On macOS/Linux:**
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-#### On Windows:
+**On Windows:**
 ```powershell
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```

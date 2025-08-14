@@ -18,6 +18,10 @@ A powerful Model Context Protocol (MCP) server that provides advanced cryptocurr
 
 1. **Install UV Package Manager** (if not already installed):
    ```bash
+   # Using Homebrew (macOS - Recommended)
+   brew install uv
+   
+   # Or using direct installation:
    # On macOS/Linux
    curl -LsSf https://astral.sh/uv/install.sh | sh
    
