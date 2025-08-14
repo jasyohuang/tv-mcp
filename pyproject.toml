@@ -14,6 +14,12 @@ dependencies = [
 # Entry point now points to packaged module
 tradingview-mcp = "tradingview_mcp.server:main"
 
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+tradingview_mcp = ["coinlist/*.txt"]
+
 [tool.uv]
 dev-dependencies = []
 package = true

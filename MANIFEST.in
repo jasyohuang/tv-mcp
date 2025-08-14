@@ -1,0 +1,2 @@
+include src/tradingview_mcp/coinlist/*.txt
+recursive-include src/tradingview_mcp/coinlist *.txt
