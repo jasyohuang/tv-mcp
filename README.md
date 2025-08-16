@@ -2,6 +2,14 @@
 
 A powerful Model Context Protocol (MCP) server that provides advanced cryptocurrency and stock market analysis using TradingView data. Perfect for traders, analysts, and AI assistants who need real-time market intelligence.
 
+## 🎥 Demo Video
+
+> **Quick 19-second demo showing the MCP server in action**
+> 
+> *(Upload your video file to this GitHub issue or release, then replace this text with the video URL)*
+
+https://github.com/user-attachments/assets/your-video-here.mp4
+
 ## ✨ Key Features
 
 - 🚀 **Real-time Market Screening**: Find top gainers, losers, and trending stocks/crypto
