@@ -6,9 +6,8 @@ A powerful Model Context Protocol (MCP) server that provides advanced cryptocurr
 
 > **Quick 19-second demo showing the MCP server in action**
 > 
-> *(Upload your video file to this GitHub issue or release, then replace this text with the video URL)*
 
-https://github.com/user-attachments/assets/your-video-here.mp4
+https://github-production-user-asset-6210df.s3.amazonaws.com/67838093/478689497-4a605d98-43e8-49a6-8d3a-559315f6c01d.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250816%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250816T155717Z&X-Amz-Expires=300&X-Amz-Signature=1362a9ea0e886268315cfa5b63951c82929ea01c9d826c87060e3ac116cf9531&X-Amz-SignedHeaders=host
 
 ## ✨ Key Features
 
