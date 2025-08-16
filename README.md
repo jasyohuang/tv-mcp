@@ -208,9 +208,10 @@ Our proprietary rating system helps identify trading opportunities:
 - Use standard timeframes (15m, 1h, 1D)
 - Check symbol format (e.g., "BTCUSDT" not "BTC")
 
-**2. Rate limiting:**
-- The server automatically handles API limits
-- Wait a few seconds between requests
+**2. Empty arrays or rate limiting:**
+- If you get empty results, you may have hit TradingView's rate limits
+- Wait 5-10 minutes between query sessions
+- The server automatically handles retries
 - KuCoin and BIST have the most reliable data
 
 **3. Claude Desktop not detecting the server:**
