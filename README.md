@@ -16,22 +16,23 @@ A powerful Model Context Protocol (MCP) server that provides advanced cryptocurr
 
 ### Option 1: Claude Desktop (Recommended)
 
-1. **Install UV Package Manager** (if not already installed):
+1. **Install UV Package Manager:**
    ```bash
-   # Using Homebrew (macOS - Recommended)
+   # macOS (Homebrew)
    brew install uv
    
-   # Or using direct installation:
-   # On macOS/Linux
-   curl -LsSf https://astral.sh/uv/install.sh | sh
-   
-   # On Windows
+   # Windows
    powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+   
+   # macOS/Linux (Direct)
+   curl -LsSf https://astral.sh/uv/install.sh | sh
    ```
 
-2. **Add to Claude Desktop Configuration**:
+2. **Add to Claude Desktop Configuration:**
    
-   Open your Claude Desktop settings and add this MCP server configuration:
+   **Config Path:**
+   - **Windows:** `%APPDATA%\Claude\claude_desktop_config.json`
+   - **macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`
    
    ```json
    {
@@ -39,9 +40,7 @@ A powerful Model Context Protocol (MCP) server that provides advanced cryptocurr
        "tradingview-mcp": {
          "command": "uv",
          "args": [
-           "tool",
-           "run",
-           "--from",
+           "tool", "run", "--from",
            "git+https://github.com/atilaahmettaner/tradingview-mcp.git",
            "tradingview-mcp"
          ]
@@ -51,6 +50,8 @@ A powerful Model Context Protocol (MCP) server that provides advanced cryptocurr
    ```
 
 3. **Restart Claude Desktop** - The server will be automatically available!
+
+📋 **For detailed Windows instructions, see [INSTALLATION.md](INSTALLATION.md)**
 
 ### Option 2: Manual Installation
 
@@ -62,8 +63,39 @@ cd tradingview-mcp
 # Install dependencies
 uv sync
 
-# Test the server
-uv run python src/tradingview_mcp/server.py
+# For local development, add to Claude Desktop:
+```
+
+**Windows Configuration Path:**
+`%APPDATA%\Claude\claude_desktop_config.json`
+
+**macOS Configuration Path:**
+`~/Library/Application Support/Claude/claude_desktop_config.json`
+
+**Configuration for Local Setup:**
+```json
+{
+  "mcpServers": {
+    "tradingview-mcp-local": {
+      "command": "C:\\path\\to\\your\\tradingview-mcp\\.venv\\Scripts\\python.exe",
+      "args": ["C:\\path\\to\\your\\tradingview-mcp\\src\\tradingview_mcp\\server.py"],
+      "cwd": "C:\\path\\to\\your\\tradingview-mcp"
+    }
+  }
+}
+```
+
+**macOS/Linux Configuration:**
+```json
+{
+  "mcpServers": {
+    "tradingview-mcp-local": {
+      "command": "uv",
+      "args": ["run", "python", "src/tradingview_mcp/server.py"],
+      "cwd": "/path/to/your/tradingview-mcp"
+    }
+  }
+}
 ```
 
 ## 🛠️ Available Tools

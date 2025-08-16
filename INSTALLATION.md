@@ -118,6 +118,50 @@ You should see tools like:
 - `coin_analysis`
 - `consecutive_candles_scan`
 
+## Windows-Specific Installation Steps
+
+### Step-by-Step for Windows Users:
+
+1. **Install UV Package Manager:**
+   ```powershell
+   powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+   ```
+
+2. **Clone the Repository:**
+   ```powershell
+   git clone https://github.com/atilaahmettaner/tradingview-mcp.git
+   cd tradingview-mcp
+   ```
+
+3. **Install Dependencies:**
+   ```powershell
+   uv sync
+   ```
+
+4. **Find Your Claude Desktop Config:**
+   - Press `Win + R`, type `%APPDATA%\Claude` and press Enter
+   - Create or edit `claude_desktop_config.json`
+
+5. **Add Configuration (Replace YOUR_USERNAME):**
+   ```json
+   {
+     "mcpServers": {
+       "tradingview-mcp-local": {
+         "command": "C:\\Users\\YOUR_USERNAME\\tradingview-mcp\\.venv\\Scripts\\python.exe",
+         "args": ["C:\\Users\\YOUR_USERNAME\\tradingview-mcp\\src\\tradingview_mcp\\server.py"],
+         "cwd": "C:\\Users\\YOUR_USERNAME\\tradingview-mcp"
+       }
+     }
+   }
+   ```
+
+6. **Get Your Actual Path:**
+   ```powershell
+   pwd  # Shows current directory - copy this path
+   ```
+
+7. **Restart Claude Desktop and Test!**
+
 ## Alternative Installation Methods
 
 ### Method 2: Local Development Setup
@@ -134,12 +178,24 @@ uv sync
 
 # Test the server
 uv run python src/tradingview_mcp/server.py
-
-# Run with MCP Inspector (for debugging)
-uv run mcp dev src/tradingview_mcp/server.py
 ```
 
 #### Claude Desktop Config for Local Setup:
+
+**Windows (Recommended - Direct Python Path):**
+```json
+{
+  "mcpServers": {
+    "tradingview-mcp-local": {
+      "command": "C:\\Users\\YourUsername\\tradingview-mcp\\.venv\\Scripts\\python.exe",
+      "args": ["C:\\Users\\YourUsername\\tradingview-mcp\\src\\tradingview_mcp\\server.py"],
+      "cwd": "C:\\Users\\YourUsername\\tradingview-mcp"
+    }
+  }
+}
+```
+
+**macOS/Linux (Using UV):**
 ```json
 {
   "mcpServers": {
@@ -152,10 +208,30 @@ uv run mcp dev src/tradingview_mcp/server.py
 }
 ```
 
+**Note for Windows Users:** Replace `YourUsername` with your actual Windows username and adjust the path accordingly. The direct Python path approach is more reliable on Windows.
+
 ### Method 3: Python Virtual Environment
 
 If you prefer traditional Python environments:
 
+**Windows:**
+```powershell
+# Clone repository
+git clone https://github.com/atilaahmettaner/tradingview-mcp.git
+cd tradingview-mcp
+
+# Create virtual environment
+python -m venv .venv
+.\.venv\Scripts\activate
+
+# Install dependencies
+pip install -e .
+
+# Run server
+python src/tradingview_mcp/server.py
+```
+
+**macOS/Linux:**
 ```bash
 # Clone repository
 git clone https://github.com/atilaahmettaner/tradingview-mcp.git
@@ -163,13 +239,26 @@ cd tradingview-mcp
 
 # Create virtual environment
 python -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+source .venv/bin/activate
 
 # Install dependencies
 pip install -e .
 
 # Run server
 python src/tradingview_mcp/server.py
+```
+
+**Claude Desktop Configuration:**
+```json
+{
+  "mcpServers": {
+    "tradingview-mcp-venv": {
+      "command": "C:\\Users\\YourUsername\\tradingview-mcp\\.venv\\Scripts\\python.exe",
+      "args": ["C:\\Users\\YourUsername\\tradingview-mcp\\src\\tradingview_mcp\\server.py"],
+      "cwd": "C:\\Users\\YourUsername\\tradingview-mcp"
+    }
+  }
+}
 ```
 
 ## Testing Your Installation
@@ -206,6 +295,22 @@ You should get detailed responses with:
 ### Issue 1: "Command not found: uv"
 
 **Solution:** UV is not installed or not in PATH
+
+**Windows:**
+```powershell
+# Re-run UV installation
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+
+# Check if uv is in PATH
+uv --version
+
+# If not found, add to PATH manually:
+# 1. Open System Properties → Environment Variables
+# 2. Add C:\Users\YourUsername\.local\bin to PATH
+# 3. Restart PowerShell/Command Prompt
+```
+
+**macOS/Linux:**
 ```bash
 # Re-run UV installation
 curl -LsSf https://astral.sh/uv/install.sh | sh
@@ -239,6 +344,17 @@ export PATH="$HOME/.cargo/bin:$PATH"
 ### Issue 5: Permission errors
 
 **Solution:** Directory or file permissions
+
+**Windows:**
+```powershell
+# Run PowerShell as Administrator and check permissions
+# Ensure your user has full control over the project directory
+icacls "C:\Users\YourUsername\tradingview-mcp" /grant "%USERNAME%":(F) /T
+
+# If using Windows Defender, add exclusion for the project folder
+```
+
+**macOS/Linux:**
 ```bash
 # Fix permissions
 chmod +x ~/.local/bin/uv
