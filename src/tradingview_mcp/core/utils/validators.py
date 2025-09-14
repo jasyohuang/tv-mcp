@@ -15,6 +15,7 @@ EXCHANGE_SCREENER = {
     "okx": "crypto",
     "bist": "turkey",
     "nasdaq": "america",
+    "idx": "indonesia",
 }
 
 # Get absolute path to coinlist directory relative to this module
